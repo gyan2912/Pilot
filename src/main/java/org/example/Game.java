@@ -26,9 +26,21 @@ public class Game {
             }
             gameRunning = updateMove(x,y,game, turn, n);
             if(!gameRunning) {
-                System.out.println("Player {} Wins" + (turn+1)%2);
+                if(turn%2==0){
+                    p2.wins++;
+                    p1.losses++;
+                    System.out.println(p2.name + "Wins" );
+                } else {
+                    p1.wins++;
+                    p2.losses++;
+                    System.out.println(p1.name + "Wins" );
+                }
+
             }
             turn++;
+        }
+        if(turn == n*n) {
+            System.out.println("Draw");
         }
     }
 
